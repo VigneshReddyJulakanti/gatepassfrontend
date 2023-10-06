@@ -126,6 +126,12 @@ export default function AdminNav() {
     <AllWatchman position={position} />
   </>
 )}
+{activeModal===null && (
+   <>
+   <CreateAdministration onClose={() => toggleModal('administration')} position={position} />
+   <AllAdministration position={position} />
+ </>
+)}
 
         </div>
       </div>

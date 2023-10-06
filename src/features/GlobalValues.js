@@ -1,7 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  BackendUrl: "http://localhost:5000",
+  // BackendUrl: "http://localhost:5000",
+  BackendUrl: "https://alert-bee-lapel.cyclic.app",
   admin: {
     administrator: false,
     teacher: false,

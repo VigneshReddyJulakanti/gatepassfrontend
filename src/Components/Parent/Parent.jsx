@@ -1,7 +1,12 @@
 import React from 'react'
+import GetParentForm from './GetParentForm'
+import ParentNav from './ParentNav'
 
 export default function Parent() {
   return (
-    <div>Parent</div>
+    <div>
+      <ParentNav/>
+      <GetParentForm/>
+    </div>
   )
 }

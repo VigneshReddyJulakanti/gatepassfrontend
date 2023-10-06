@@ -1,7 +1,17 @@
 import React from 'react'
+import CreateForm from './CreateForm'
+import StudentNav from './StudentNav'
+import AllForms from './AllForms'
 
 export default function Student() {
   return (
-    <div>Student</div>
+    <>
+    <StudentNav/>
+    <div className='container'>
+     
+      <CreateForm/>
+      <AllForms/>
+    </div>
+    </>
   )
 }
