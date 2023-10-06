@@ -4,14 +4,14 @@ import { useNavigate,Link } from "react-router-dom";
 import { useSelector ,useDispatch} from 'react-redux'
 
 
-export default function EmailLogin(){
+export default function PhnoLogin(){
 
     const navigate = useNavigate()
     const BackendUrl=useSelector((state)=>state.GlobalValues.BackendUrl)
 
     const host=BackendUrl
 
-    const [credentials, setcredentials] = useState({email:"",password:"",position:""})
+    const [credentials, setcredentials] = useState({phno:"",position:""})
     
     const signin=async (a)=>{
         try{
@@ -28,7 +28,7 @@ export default function EmailLogin(){
           },
           // referrerPolicy: 'no-referrer', // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
          // body data type must match "Content-Type" header
-         body: JSON.stringify({"email":credentials.email,"password":credentials.password})
+         body: JSON.stringify({"phno":credentials.phno.toString()})
         });
 
         // console.log(response)
@@ -116,17 +116,13 @@ export default function EmailLogin(){
                       <i className="fa fa-instagram "></i>
                     </li>
                   </ul> */}
-               <p className='fw-bold'>Email     </p>
+               <p className='fw-bold'>Phno</p>
                 <div className="input-group">
                   <span className="input-group-addon"><i className=""></i></span>
                   
-                  <input type="email" className="form-control" name="email" placeholder="Email..." onChange={handleonchange}/>
+                  <input type="phno" className="form-control" name="phno" placeholder="Phno..." onChange={handleonchange}/>
                 </div>
-                <p className='fw-bold my-3'>Password</p>
-                <div className="input-group">
-                  <span className="input-group-addon"><i className=""></i></span>
-                  <input type="password" className="form-control" name="password" placeholder="Password..." onChange={handleonchange}/>
-                </div>
+              
                 <p className="fw-bold my-3">Position</p>
                   <div className="input-group">
                     <select
@@ -136,11 +132,8 @@ export default function EmailLogin(){
                       value={credentials.position}
                     >
                       <option value="">Select Position</option>
-                      <option value="student">Student</option>
-                      <option value="teacher">Teacher</option>
-                      <option value="hod">Hod</option>
-                      <option value="administrator">Administrator</option>
-                      <option value="admin">Admin</option>
+                      <option value="parent">Parent</option>
+                      <option value="watchman">WatchMan</option>
                     </select>
                   </div>
                 <div className="footer text-center">
