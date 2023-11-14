@@ -4,6 +4,32 @@ function GetWatchmanForm() {
   const BackendUrl = useSelector((state) => state.GlobalValues.BackendUrl);
   const host = BackendUrl;
   const [forms, setForms] = useState([]);
+
+
+
+  const handleSentOut=async(_id)=>{
+    try {
+      const response = await fetch(`${host}/api/data/watchman/sent/`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          authtoken: localStorage.getItem("authtoken_watchman")
+        }, body: JSON.stringify({
+          _id:_id
+        }),
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        alert("Sent Out")
+      } else {
+        console.error('Failed to fetch parent forms:', data.message);
+      }
+    } catch (error) {
+      console.error('Error fetching parent forms:', error);
+    }
+  }
   useEffect(() => {
     const fetchForms = async () => {
       try {
@@ -42,6 +68,7 @@ function GetWatchmanForm() {
             <div className="card">
               <div className="card-body">
                 <p className="card-text">Roll No: {form.rollno}</p>
+                <button className='btn btn-primary' onClick={()=>handleSentOut(form._id)}>Sent Out</button>
                
                 
               </div>
