@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   // BackendUrl: "http://localhost:5000",
-  BackendUrl: "https://rich-jade-alligator-wig.cyclic.app",
+  BackendUrl: "https://gatepassbackend-1.onrender.com",
   admin: {
     administrator: false,
     teacher: false,
